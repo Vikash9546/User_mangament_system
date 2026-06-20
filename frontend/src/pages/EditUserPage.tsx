@@ -104,9 +104,9 @@ export default function EditUserPage() {
   if (isLoading) return <div className="min-h-screen bg-gray-50 flex items-center justify-center">Loading...</div>;
   if (!user) return <div className="min-h-screen bg-gray-50 flex items-center justify-center">User not found</div>;
 
-  const isSubmitDisabled = mutation.isPending || isValidating || 
+  const isSubmitDisabled = Boolean(mutation.isPending || isValidating || 
     (panStatus && (!panStatus.valid || panStatus.exists)) || 
-    (aadhaarStatus && (!aadhaarStatus.valid || aadhaarStatus.exists));
+    (aadhaarStatus && (!aadhaarStatus.valid || aadhaarStatus.exists)));
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">

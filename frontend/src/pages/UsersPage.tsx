@@ -3,7 +3,7 @@ import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-q
 import { getUsers, deleteUser, restoreUser, hardDeleteUser } from '../api/users';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { Search, Edit, Trash2, RotateCcw, User, Plus, AlertTriangle } from 'lucide-react';
+import { Search, Edit, Trash2, RotateCcw, Plus, AlertTriangle } from 'lucide-react';
 
 export default function UsersPage() {
   const [search, setSearch] = useState('');

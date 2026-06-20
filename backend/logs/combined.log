@@ -336,3 +336,16 @@
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T12:07:45.390Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=all","timestamp":"2026-06-20T12:07:47.737Z"}
 {"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=all","timestamp":"2026-06-20T12:07:51.375Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=all","timestamp":"2026-06-20T12:08:22.501Z"}
+{"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=all","timestamp":"2026-06-20T12:08:23.291Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T12:09:49.835Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T12:09:49.842Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T12:09:49.842Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T12:12:40.704Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T12:12:40.708Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T12:12:40.720Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T12:12:40.720Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T12:12:40.721Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T12:12:40.721Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=all","timestamp":"2026-06-20T12:15:42.515Z"}
+{"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=all","timestamp":"2026-06-20T12:15:43.483Z"}
