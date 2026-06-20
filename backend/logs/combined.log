@@ -253,3 +253,33 @@
 {"level":"info","message":"GET /api/v1/users/2e7dd10d-a3a9-4b64-b539-2c46a24aa31b","timestamp":"2026-06-20T11:56:45.871Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:56:48.965Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:56:52.827Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:57:17.387Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:58:00.281Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:58:55.263Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:58:57.662Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T11:59:00.421Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:59:03.004Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T11:59:09.452Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T11:59:09.471Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T11:59:09.471Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T11:59:09.613Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T11:59:09.620Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T11:59:09.620Z"}
+{"level":"info","message":"GET /api/v1/users/db9c3aee-6b2f-466c-8e7a-8ed494a02c30","timestamp":"2026-06-20T11:59:11.560Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:59:14.935Z"}
+{"level":"info","message":"GET /api/v1/users/599ecd1d-0042-40ef-a77a-b3fee1b53bca","timestamp":"2026-06-20T11:59:17.289Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:59:19.959Z"}
+{"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=active","timestamp":"2026-06-20T11:59:24.380Z"}
+{"level":"info","message":"GET /api/v1/users/2e7dd10d-a3a9-4b64-b539-2c46a24aa31b","timestamp":"2026-06-20T11:59:27.892Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:59:30.833Z"}
+{"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=active","timestamp":"2026-06-20T11:59:31.248Z"}
+{"level":"info","message":"DELETE /api/v1/users/7a2dc068-0293-4956-a3f2-69424a05be4d","timestamp":"2026-06-20T11:59:38.757Z"}
+{"level":"info","message":"DELETE /api/v1/users/7a2dc068-0293-4956-a3f2-69424a05be4d","timestamp":"2026-06-20T11:59:41.401Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:59:41.967Z"}
+{"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=active","timestamp":"2026-06-20T11:59:42.284Z"}
+{"level":"info","message":"DELETE /api/v1/users/b0e399e5-1c3f-4479-8fb2-984001240199","timestamp":"2026-06-20T11:59:42.885Z"}
+{"level":"info","message":"DELETE /api/v1/users/b0e399e5-1c3f-4479-8fb2-984001240199","timestamp":"2026-06-20T11:59:43.234Z"}
+{"level":"error","message":"Error processing request: User is already deleted","path":"/api/v1/users/7a2dc068-0293-4956-a3f2-69424a05be4d","timestamp":"2026-06-20T11:59:43.375Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T11:59:45.191Z"}
+{"level":"error","message":"Error processing request: User is already deleted","path":"/api/v1/users/b0e399e5-1c3f-4479-8fb2-984001240199","timestamp":"2026-06-20T11:59:45.482Z"}
+{"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=active","timestamp":"2026-06-20T11:59:45.816Z"}
