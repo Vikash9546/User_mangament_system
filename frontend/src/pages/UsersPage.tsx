@@ -1,9 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getUsers, deleteUser, restoreUser, hardDeleteUser } from '../api/users';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Search, Edit, Trash2, RotateCcw, Plus, AlertTriangle } from 'lucide-react';
+
+const LoadingMessage = () => {
+  const sadEmojis = ['😞', '😔', '😟', '😕', '🙁', '☹️', '🥺', '🥱'];
+  const [emojiIndex, setEmojiIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setEmojiIndex(prev => (prev + 1) % sadEmojis.length);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="p-8 text-center font-bold text-lg animate-color-blink flex flex-col items-center justify-center space-y-3">
+      <div className="text-5xl">{sadEmojis[emojiIndex]}</div>
+      <div>Deployed on render free tier it's take few sec Loading users Please wait...</div>
+    </div>
+  );
+};
 
 export default function UsersPage() {
   const [search, setSearch] = useState('');
@@ -49,12 +68,7 @@ export default function UsersPage() {
     },
   });
 
-  if (isLoading) return (
-    <div className="p-8 text-center font-bold text-lg animate-color-blink flex flex-col items-center justify-center space-y-3">
-      <div className="text-5xl">😞</div>
-      <div>Deployed on render free tier it's take few sec Loading users Please wait...</div>
-    </div>
-  );
+  if (isLoading) return <LoadingMessage />;
 
 
   const users = data?.pages.flatMap(page => page.data) || [];
