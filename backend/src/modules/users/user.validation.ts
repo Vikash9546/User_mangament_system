@@ -10,8 +10,8 @@ export const createUserSchema = z.object({
     email: z.string().email(),
     primaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits'),
     secondaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits').optional(),
-    aadhaar: z.string().refine(validateAadhaar, 'Invalid Aadhaar number'),
-    pan: z.string().refine(validatePAN, 'Invalid PAN number'),
+    aadhaar: z.string().min(12).max(12).refine(validateAadhaar, { message: 'Invalid Aadhaar number' }),
+    pan: z.string().min(10).max(10).toUpperCase().refine(validatePAN, { message: 'Invalid PAN number' }),
     dateOfBirth: z.string().refine((val) => {
       const date = new Date(val);
       return !isNaN(date.getTime()) && date <= new Date();
@@ -28,8 +28,8 @@ export const updateUserSchema = z.object({
     email: z.string().email().optional(),
     primaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits').optional(),
     secondaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits').optional(),
-    aadhaar: z.string().refine(validateAadhaar, 'Invalid Aadhaar number').optional(),
-    pan: z.string().refine(validatePAN, 'Invalid PAN number').optional(),
+    aadhaar: z.string().min(12).max(12).refine(validateAadhaar, { message: 'Invalid Aadhaar number' }).optional(),
+    pan: z.string().min(10).max(10).toUpperCase().refine(validatePAN, { message: 'Invalid PAN number' }).optional(),
     dateOfBirth: z.string().refine((val) => {
       const date = new Date(val);
       return !isNaN(date.getTime()) && date <= new Date();

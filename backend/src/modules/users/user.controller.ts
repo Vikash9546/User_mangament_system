@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import { userService } from './user.service';
 import { sendSuccess } from '../../utils/response';
+import { mapUserResponse } from './user.mapper';
 
 export class UserController {
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const user = await userService.create(req.body);
-      return sendSuccess(res, 'User created successfully', user, 201);
+      return sendSuccess(res, 'User created successfully', mapUserResponse(user), 201);
     } catch (error) {
       next(error);
     }
@@ -15,7 +16,7 @@ export class UserController {
   async update(req: Request, res: Response, next: NextFunction) {
     try {
       const user = await userService.update(req.params.id as string, req.body);
-      return sendSuccess(res, 'User updated successfully', user);
+      return sendSuccess(res, 'User updated successfully', mapUserResponse(user));
     } catch (error) {
       next(error);
     }
@@ -24,7 +25,7 @@ export class UserController {
   async getById(req: Request, res: Response, next: NextFunction) {
     try {
       const user = await userService.getById(req.params.id as string);
-      return sendSuccess(res, 'User retrieved successfully', user);
+      return sendSuccess(res, 'User retrieved successfully', mapUserResponse(user));
     } catch (error) {
       next(error);
     }
@@ -35,7 +36,7 @@ export class UserController {
       const data = await userService.getUsers(req.query);
       return res.status(200).json({
         success: true,
-        data: data.users,
+        data: data.users.map(mapUserResponse),
         pagination: data.pagination
       });
     } catch (error) {
@@ -55,7 +56,7 @@ export class UserController {
   async restore(req: Request, res: Response, next: NextFunction) {
     try {
       const user = await userService.restore(req.params.id as string);
-      return sendSuccess(res, 'User restored successfully', user);
+      return sendSuccess(res, 'User restored successfully', mapUserResponse(user));
     } catch (error) {
       next(error);
     }
