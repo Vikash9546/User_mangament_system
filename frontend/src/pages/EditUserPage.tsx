@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { User, AtSign, IdCard, Home, AlertCircle, CheckCircle, XCircle } from 'lucide-react';
 
 const Card = ({ title, icon: Icon, children }: any) => (
-  <div className="bg-gradient-to-br from-pink-50 via-white to-white border border-pink-100 rounded-lg shadow-sm overflow-hidden mb-6 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+  <div className="bg-gradient-to-br from-pink-50 via-white to-white border border-pink-100 rounded-lg shadow-sm overflow-hidden mb-6 dark:bg-none dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
     <div className="bg-pink-50 border-b border-pink-100 px-6 py-4 flex items-center gap-3 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
       <div className="p-1.5 bg-pink-100 text-pink-600 rounded-md dark:bg-pink-900/30 dark:text-pink-400">
         <Icon size={20} />
