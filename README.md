@@ -4,9 +4,9 @@ A production-ready, full-stack User Management application featuring a highly re
 
 Built with **React**, **Vite**, **Tailwind CSS**, **Node.js**, **Express**, **Prisma**, and **MySQL**.
 
-![User Management System Demo](https://github.com/Vikash9546/User_mangament_system/assets/placeholder) *(You can replace this with an actual screenshot)*
+![User Management System Demo] [https://user-mangament-system.vercel.app/]
 
-## 🌟 Key Features
+## Key Features
 
 ### Frontend (UI/UX)
 - **Stunning UI**: A gorgeous, premium 30% pink and 70% white aesthetic with custom subtle background gradients on cards.
@@ -25,7 +25,7 @@ Built with **React**, **Vite**, **Tailwind CSS**, **Node.js**, **Express**, **Pr
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Frontend | Backend |
 | --- | --- |
@@ -38,7 +38,7 @@ Built with **React**, **Vite**, **Tailwind CSS**, **Node.js**, **Express**, **Pr
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Database Setup
 Ensure you have a MySQL instance running. You can use a local server or a cloud provider (like Aiven or PlanetScale).
@@ -91,7 +91,7 @@ Visit: `http://localhost:5000/api-docs`
 
 ---
 
-## 🧪 Testing
+## Testing
 The backend is fully covered with unit tests and API integration tests using Jest and Supertest.
 ```bash
 cd backend
@@ -100,7 +100,7 @@ npm test
 
 ---
 
-## ☁️ Deployment Notes
+## Deployment Notes
 
 - **Frontend**: Optimized for seamless deployment on [Vercel](https://vercel.com).
 - **Backend**: Configured for deployment on services like [Render](https://render.com) or Heroku. Note that free tiers may cause initial cold-start delays. The frontend's loading screen gracefully handles this!
