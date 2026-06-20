@@ -40,6 +40,37 @@ This is a monorepo containing:
 ## Testing
 - Run `cd backend && npm test` to execute Jest unit tests with Supertest API tests.
 
+## Security Considerations
+
+### Aadhaar Validation
+The application validates Aadhaar numbers using the Verhoeff checksum algorithm instead of relying solely on regex validation.
+
+### PAN Validation
+The application validates PAN numbers against the official PAN structure format.
+
+### Sensitive Data Masking
+Aadhaar and PAN values are masked before being returned through APIs. Only the last four characters are exposed.
+Example:
+- AADHAAR: XXXXXXXX9012
+- PAN: XXXXXX234F
+
+### Secure Logging
+Sensitive fields such as Aadhaar, PAN, passwords, and authorization tokens are never logged in plain text.
+
+### Data Exposure Prevention
+Public APIs never expose full Aadhaar or PAN values.
+
+## Transport Security
+
+In production environments, all API communication should occur over HTTPS using TLS 1.2+ or higher.
+
+HTTPS ensures:
+- Encryption of Aadhaar and PAN during transmission
+- Protection against network interception
+- Secure communication between frontend and backend
+
+Local development uses HTTP, while production deployments should enforce HTTPS.
+
 ## API Documentation
 Once the backend is running, visit:
 `http://localhost:5000/api-docs`

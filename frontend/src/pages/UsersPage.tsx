@@ -49,7 +49,7 @@ export default function UsersPage() {
     },
   });
 
-  if (isLoading) return <div className="p-8 text-center text-gray-500">Deployed on render free tier it's take few sec Loading users Please wait...</div>;
+  if (isLoading) return <div className="p-8 text-center font-bold text-lg animate-color-blink">Deployed on render free tier it's take few sec Loading users Please wait...</div>;
 
   const users = data?.pages.flatMap(page => page.data) || [];
 
@@ -169,10 +169,24 @@ export default function UsersPage() {
             <h3 className="text-xl font-bold text-center text-gray-900 mb-2">
               {confirmAction.type === 'delete' ? 'Delete User' : confirmAction.type === 'hard-delete' ? 'Permanently Delete User' : 'Restore User'}
             </h3>
-            <p className="text-center text-gray-600 mb-6">
-              Are you sure you want to {confirmAction.type === 'hard-delete' ? 'permanently delete' : confirmAction.type} <strong>{confirmAction.name}</strong>?
-              {confirmAction.type === 'hard-delete' && " This action cannot be undone."}
-            </p>
+            {confirmAction.type === 'delete' ? (
+              <div className="text-center text-gray-600 mb-6 space-y-3">
+                <p>Looks like it's time to part ways with <strong>{confirmAction.name}</strong>.</p>
+                <p>Deleting this profile will remove users records and associated access from the system.</p>
+                <p>Are you sure you want to continue?</p>
+              </div>
+            ) : confirmAction.type === 'restore' ? (
+              <div className="text-center text-gray-600 mb-6 space-y-3">
+                <p>Looks like <strong>{confirmAction.name}</strong> is making a comeback!</p>
+                <p>Restoring this profile will reactivate their records and grant them access to the system again.</p>
+                <p>Are you ready to welcome them back?</p>
+              </div>
+            ) : (
+              <p className="text-center text-gray-600 mb-6">
+                Are you sure you want to permanently delete <strong>{confirmAction.name}</strong>?
+                This action cannot be undone.
+              </p>
+            )}
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setConfirmAction(null)}

@@ -7,3 +7,15 @@
     @apply bg-gray-50 text-gray-900;
   }
 }
+
+@keyframes color-blink {
+  0% { color: #ef4444; opacity: 1; }
+  25% { color: #f59e0b; opacity: 0.4; }
+  50% { color: #10b981; opacity: 1; }
+  75% { color: #3b82f6; opacity: 0.4; }
+  100% { color: #8b5cf6; opacity: 1; }
+}
+
+.animate-color-blink {
+  animation: color-blink 2s infinite ease-in-out alternate;
+}
