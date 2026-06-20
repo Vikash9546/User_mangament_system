@@ -63,7 +63,7 @@ export default function UsersPage() {
         </Link>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-xl shadow-sm border border-pink-50 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+      <div className="flex flex-col sm:flex-row gap-4 bg-gradient-to-br from-pink-50 via-white to-white p-4 rounded-xl shadow-sm border border-pink-50 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 dark:text-gray-500" />
           <input
@@ -85,7 +85,7 @@ export default function UsersPage() {
         </select>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-pink-50 overflow-hidden dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+      <div className="bg-gradient-to-br from-pink-50 via-white to-white rounded-xl shadow-sm border border-pink-100 overflow-hidden dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

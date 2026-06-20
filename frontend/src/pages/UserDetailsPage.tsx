@@ -29,7 +29,7 @@ export default function UserDetailsPage() {
         </Link>
       </div>
 
-      <div className="bg-white p-8 rounded-xl shadow-sm border border-pink-50 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+      <div className="bg-gradient-to-br from-pink-50 via-white to-white p-8 rounded-xl shadow-sm border border-pink-100 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
         <div className="flex items-start justify-between border-b border-pink-50 dark:border-gray-700 pb-6 mb-6">
           <div className="flex items-center">
             <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 text-2xl font-bold mr-6">
