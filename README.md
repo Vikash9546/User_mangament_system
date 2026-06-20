@@ -4,7 +4,7 @@ A production-ready, full-stack User Management application featuring a highly re
 
 Built with **React**, **Vite**, **Tailwind CSS**, **Node.js**, **Express**, **Prisma**, and **MySQL**.
 
-![User Management System Demo] (https://user-mangament-system.vercel.app/)
+[User Management System Demo] (https://user-mangament-system.vercel.app/)
 
 ## Key Features
 
