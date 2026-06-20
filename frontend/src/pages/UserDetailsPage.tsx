@@ -31,13 +31,13 @@ export default function UserDetailsPage() {
 
       <div className="bg-gradient-to-br from-pink-50 via-white to-white p-4 sm:p-6 md:p-8 rounded-xl shadow-sm border border-pink-100 dark:bg-none dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 border-b border-pink-50 dark:border-gray-700 pb-6 mb-6">
-          <div className="flex items-center">
-            <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 text-2xl font-bold mr-6">
+          <div className="flex items-center w-full">
+            <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 text-2xl font-bold mr-6 shrink-0">
               {user.name.charAt(0).toUpperCase()}
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{user.name}</h1>
-              <p className="text-gray-500 dark:text-gray-400">{user.email}</p>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 break-words">{user.name}</h1>
+              <p className="text-gray-500 dark:text-gray-400 break-all">{user.email}</p>
               <div className="mt-2 flex gap-2">
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${user.isActive ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-pink-100/50 text-gray-700 dark:bg-gray-700 dark:text-gray-300'}`}>
                   {user.isActive ? 'Active' : 'Inactive'}
