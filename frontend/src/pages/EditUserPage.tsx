@@ -132,7 +132,7 @@ export default function EditUserPage() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Date of Birth <span className="text-red-500">*</span></label>
-                <input name="dateOfBirth" defaultValue={new Date(user.dateOfBirth).toISOString().split('T')[0]} type="date" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
+                <input name="dateOfBirth" defaultValue={new Date(user.dateOfBirth).toISOString().split('T')[0]} type="date" required onClick={(e) => (e.target as HTMLInputElement).showPicker()} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow cursor-pointer" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Place of Birth <span className="text-red-500">*</span></label>
@@ -163,54 +163,44 @@ export default function EditUserPage() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Aadhaar / National ID <span className="text-red-500">*</span></label>
                 <input 
+                  type="text" 
                   name="aadhaar" 
                   required 
-                  placeholder="XXXX-XXXX-XXXX"
-                  value={aadhaar}
+                  placeholder="1234 5678 9012"
+                  value={aadhaar.replace(/(\d{4})(?=\d)/g, '$1 ').trim()}
                   onChange={(e) => {
-                    const val = e.target.value.replace(/\s+/g, '');
-                    setAadhaar(val);
-                    setAadhaarStatus(null);
+                    const val = e.target.value.replace(/\s/g, '');
+                    if (/^\d*$/.test(val) && val.length <= 12) setAadhaar(val);
                   }}
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none transition-shadow ${
-                    aadhaarStatus && !aadhaarStatus.valid ? 'border-red-500 focus:ring-red-500 text-red-900' : 
-                    aadhaarStatus && aadhaarStatus.exists ? 'border-red-500 focus:ring-red-500 text-red-900' :
-                    'border-gray-300'
-                  }`} 
+                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow ${aadhaarStatus ? (aadhaarStatus.valid && !aadhaarStatus.exists ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50') : 'border-gray-300'}`}
                 />
                 {aadhaarStatus && (
-                  <p className={`text-sm mt-1 flex items-center gap-1 ${aadhaarStatus.valid && !aadhaarStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
-                    {(!aadhaarStatus.valid || aadhaarStatus.exists) && <AlertCircle size={14} />}
-                    {aadhaarStatus.exists ? 'Aadhaar already exists' : 
-                     !aadhaarStatus.valid ? 'Invalid Aadhaar' : '✓ Aadhaar is valid'}
-                  </p>
+                  <div className={`text-sm mt-1 flex items-center gap-1 ${aadhaarStatus.valid && !aadhaarStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
+                    {aadhaarStatus.valid && !aadhaarStatus.exists ? <CheckCircle size={14} /> : <XCircle size={14} />}
+                    {aadhaarStatus.exists ? 'Aadhaar already registered' : aadhaarStatus.valid ? '✓ Valid Aadhaar' : '✗ Invalid Aadhaar'}
+                  </div>
                 )}
                 {isValidating && <p className="text-sm mt-1 text-gray-500">Checking...</p>}
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">PAN / Tax ID <span className="text-red-500">*</span></label>
                 <input 
+                  type="text" 
                   name="pan" 
                   required 
+                  placeholder="ABCDE1234F"
                   value={pan}
                   onChange={(e) => {
                     const val = e.target.value.toUpperCase();
-                    setPan(val);
-                    setPanStatus(null);
+                    if (val.length <= 10) setPan(val);
                   }}
-                  placeholder="ABCDE1234F" 
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none uppercase transition-shadow ${
-                    panStatus && !panStatus.valid ? 'border-red-500 focus:ring-red-500 text-red-900' : 
-                    panStatus && panStatus.exists ? 'border-red-500 focus:ring-red-500 text-red-900' :
-                    'border-gray-300'
-                  }`} 
+                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow ${panStatus ? (panStatus.valid && !panStatus.exists ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50') : 'border-gray-300'}`}
                 />
                 {panStatus && (
-                  <p className={`text-sm mt-1 flex items-center gap-1 ${panStatus.valid && !panStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
-                    {(!panStatus.valid || panStatus.exists) && <AlertCircle size={14} />}
-                    {panStatus.exists ? 'PAN already exists' : 
-                     !panStatus.valid ? 'Invalid PAN format' : '✓ PAN is valid'}
-                  </p>
+                  <div className={`text-sm mt-1 flex items-center gap-1 ${panStatus.valid && !panStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
+                    {panStatus.valid && !panStatus.exists ? <CheckCircle size={14} /> : <XCircle size={14} />}
+                    {panStatus.exists ? 'PAN already registered' : panStatus.valid ? '✓ Valid PAN' : '✗ Invalid PAN'}
+                  </div>
                 )}
                 {isValidating && <p className="text-sm mt-1 text-gray-500">Checking...</p>}
               </div>

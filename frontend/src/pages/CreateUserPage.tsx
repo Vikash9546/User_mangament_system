@@ -89,8 +89,8 @@ export default function CreateUserPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Create New User</h1>
-            <p className="mt-1 text-sm text-gray-500">Onboard a new employee to the enterprise ecosystem.</p>
+            <h1 className="text-3xl font-bold text-gray-900">Launch a new user into orbit.</h1>
+            <p className="mt-1 text-sm text-gray-500">Everything needed to welcome a new employee—organized in one place.</p>
           </div>
         </div>
 
@@ -106,11 +106,11 @@ export default function CreateUserPage() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Date of Birth <span className="text-red-500">*</span></label>
-                <input name="dateOfBirth" type="date" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
+                <input name="dateOfBirth" type="date" required onClick={(e) => (e.target as HTMLInputElement).showPicker()} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow cursor-pointer" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Place of Birth <span className="text-red-500">*</span></label>
-                <input name="placeOfBirth" required placeholder="City, Country" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
+                <input name="placeOfBirth" required placeholder="Tell us which City, Country the magic happens..." className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
               </div>
             </div>
           </Card>
@@ -118,16 +118,16 @@ export default function CreateUserPage() {
           <Card title="Contact Details" icon={AtSign}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Corporate Email Address <span className="text-red-500">*</span></label>
-                <input name="email" type="email" required placeholder="vikash.kumar@enterprise.com" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address <span className="text-red-500">*</span></label>
+                <input name="email" type="email" required placeholder="vikash.kumar@gmail.com" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Primary Mobile <span className="text-red-500">*</span></label>
-                <input name="primaryMobile" required pattern="^\d{10}$" placeholder="+91 - 9876543210" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
+                <input name="primaryMobile" required pattern="^\d{10}$" placeholder="+91 9876543210" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Secondary Mobile <span className="text-gray-400 font-normal">(Optional)</span></label>
-                <input name="secondaryMobile" pattern="^\d{10}$" placeholder="+91 - 9876543210" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
+                <input name="secondaryMobile" pattern="^\d{10}$" placeholder="+91 9876543210" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
               </div>
             </div>
           </Card>
@@ -137,54 +137,50 @@ export default function CreateUserPage() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Aadhaar / National ID <span className="text-red-500">*</span></label>
                 <input 
+                  type="text" 
                   name="aadhaar" 
                   required 
-                  placeholder="XXXX-XXXX-XXXX"
-                  value={aadhaar}
+                  placeholder="1234 5678 9012"
+                  value={aadhaar.replace(/(\d{4})(?=\d)/g, '$1 ').trim()}
                   onChange={(e) => {
-                    const val = e.target.value.replace(/\s+/g, '');
-                    setAadhaar(val);
-                    setAadhaarStatus(null);
+                    const val = e.target.value.replace(/\s/g, '');
+                    if (/^\d*$/.test(val) && val.length <= 12) {
+                      setAadhaar(val);
+                      setAadhaarStatus(null);
+                    }
                   }}
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none transition-shadow ${
-                    aadhaarStatus && !aadhaarStatus.valid ? 'border-red-500 focus:ring-red-500 text-red-900' : 
-                    aadhaarStatus && aadhaarStatus.exists ? 'border-red-500 focus:ring-red-500 text-red-900' :
-                    'border-gray-300'
-                  }`} 
+                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow ${aadhaarStatus ? (aadhaarStatus.valid && !aadhaarStatus.exists ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50') : 'border-gray-300'}`}
                 />
                 {aadhaarStatus && (
-                  <p className={`text-sm mt-1 flex items-center gap-1 ${aadhaarStatus.valid && !aadhaarStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
-                    {(!aadhaarStatus.valid || aadhaarStatus.exists) && <AlertCircle size={14} />}
-                    {aadhaarStatus.exists ? 'Aadhaar already exists' : 
-                     !aadhaarStatus.valid ? 'Invalid Aadhaar' : '✓ Aadhaar is valid'}
-                  </p>
+                  <div className={`text-sm mt-1 flex items-center gap-1 ${aadhaarStatus.valid && !aadhaarStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
+                    {aadhaarStatus.valid && !aadhaarStatus.exists ? <CheckCircle size={14} /> : <XCircle size={14} />}
+                    {aadhaarStatus.exists ? 'Aadhaar already registered' : aadhaarStatus.valid ? '✓ Valid Aadhaar' : '✗ Invalid Aadhaar'}
+                  </div>
                 )}
                 {isValidating && <p className="text-sm mt-1 text-gray-500">Checking...</p>}
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">PAN / Tax ID <span className="text-red-500">*</span></label>
                 <input 
+                  type="text" 
                   name="pan" 
                   required 
+                  placeholder="ABCDE1234F"
                   value={pan}
                   onChange={(e) => {
                     const val = e.target.value.toUpperCase();
-                    setPan(val);
-                    setPanStatus(null);
+                    if (val.length <= 10) {
+                      setPan(val);
+                      setPanStatus(null);
+                    }
                   }}
-                  placeholder="ABCDE1234F" 
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none uppercase transition-shadow ${
-                    panStatus && !panStatus.valid ? 'border-red-500 focus:ring-red-500 text-red-900' : 
-                    panStatus && panStatus.exists ? 'border-red-500 focus:ring-red-500 text-red-900' :
-                    'border-gray-300'
-                  }`} 
+                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow ${panStatus ? (panStatus.valid && !panStatus.exists ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50') : 'border-gray-300'}`}
                 />
                 {panStatus && (
-                  <p className={`text-sm mt-1 flex items-center gap-1 ${panStatus.valid && !panStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
-                    {(!panStatus.valid || panStatus.exists) && <AlertCircle size={14} />}
-                    {panStatus.exists ? 'PAN already exists' : 
-                     !panStatus.valid ? 'Invalid PAN format' : '✓ PAN is valid'}
-                  </p>
+                  <div className={`text-sm mt-1 flex items-center gap-1 ${panStatus.valid && !panStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
+                    {panStatus.valid && !panStatus.exists ? <CheckCircle size={14} /> : <XCircle size={14} />}
+                    {panStatus.exists ? 'PAN already registered' : panStatus.valid ? '✓ Valid PAN' : '✗ Invalid PAN'}
+                  </div>
                 )}
                 {isValidating && <p className="text-sm mt-1 text-gray-500">Checking...</p>}
               </div>
@@ -199,7 +195,7 @@ export default function CreateUserPage() {
                   name="currentAddress" 
                   required 
                   rows={3} 
-                  placeholder="Street name, building number, locality..."
+                  placeholder="Your current coordinates on Earth..."
                   value={currentAddress}
                   onChange={(e) => {
                     setCurrentAddress(e.target.value);
@@ -220,7 +216,7 @@ export default function CreateUserPage() {
                   name="permanentAddress" 
                   required 
                   rows={3} 
-                  placeholder="Legal permanent address..."
+                  placeholder="Tell us where the magic happens..."
                   value={permanentAddress}
                   onChange={(e) => {
                     setPermanentAddress(e.target.value);
