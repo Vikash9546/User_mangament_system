@@ -132,7 +132,7 @@ export default function EditUserPage() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1 dark:text-gray-300">Date of Birth <span className="text-red-500">*</span></label>
-                <input name="dateOfBirth" defaultValue={new Date(user.dateOfBirth).toISOString().split('T')[0]} type="date" required onClick={(e) => (e.target as HTMLInputElement).showPicker()} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:focus:ring-blue-400 dark:focus:border-blue-400 [color-scheme:light_dark]" />
+                <input name="dateOfBirth" defaultValue={new Date(user.dateOfBirth).toISOString().split('T')[0]} type="date" required onClick={(e) => (e.target as HTMLInputElement).showPicker()} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:focus:ring-blue-400 dark:focus:border-blue-400 [color-scheme:light] dark:[color-scheme:dark]" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1 dark:text-gray-300">Place of Birth <span className="text-red-500">*</span></label>

@@ -18,11 +18,14 @@ function App() {
 
   useEffect(() => {
     const root = window.document.documentElement;
+    const body = window.document.body;
     if (isDarkMode) {
       root.classList.add('dark');
+      body.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
+      body.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
@@ -58,7 +61,8 @@ function App() {
               <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">User Management System</h2>
             </Link>
             <button
-              onClick={() => setIsDarkMode(!isDarkMode)}
+              type="button"
+              onClick={() => setIsDarkMode(prev => !prev)}
               className="p-2 text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-all duration-300 active:scale-95 dark:text-gray-400 dark:hover:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600"
               title="Toggle Dark Mode"
             >

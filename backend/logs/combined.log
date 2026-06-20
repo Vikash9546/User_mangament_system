@@ -455,3 +455,12 @@
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:52:23.691Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:57:05.805Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:01:17.379Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T19:33:35.817Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T19:33:35.823Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T19:33:35.824Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:33:55.486Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:34:03.924Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:35:38.851Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T19:35:46.825Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T19:35:53.872Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:35:56.436Z"}
