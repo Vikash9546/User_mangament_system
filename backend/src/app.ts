@@ -6,6 +6,7 @@ import { userRoutes } from './modules/users/user.routes';
 import { errorHandler } from './middleware/error.middleware';
 import { setupSwagger } from './config/swagger';
 import { logger } from './utils/logger';
+import { sanitizeSensitiveData } from './utils/logSanitizer';
 
 const app: Express = express();
 
@@ -37,7 +38,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Request logging middleware
 app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.url}`);
+  const sanitizedBody = sanitizeSensitiveData(req.body);
+  logger.info(`${req.method} ${req.url}`, { body: sanitizedBody });
   next();
 });
 
