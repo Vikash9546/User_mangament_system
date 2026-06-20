@@ -43,3 +43,8 @@ export const restoreUser = async (id: string) => {
   const { data } = await api.patch(`/users/${id}/restore`);
   return data.data;
 };
+
+export const validateDocument = async (payload: { pan?: string; aadhaar?: string }) => {
+  const { data } = await api.post('/users/validate-document', payload);
+  return data;
+};

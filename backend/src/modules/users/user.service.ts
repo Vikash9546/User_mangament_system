@@ -1,4 +1,6 @@
 import { userRepository } from './user.repository';
+import { validatePAN } from '../../utils/panValidator';
+import { validateAadhaar } from '../../utils/aadhaarValidator';
 import { CreateUserInput, UpdateUserInput, GetUsersQuery } from './user.types';
 import { encodeCursor, decodeCursor } from '../../utils/cursor';
 import { Prisma } from '@prisma/client';
@@ -10,10 +12,10 @@ export class UserService {
     if (emailExists) throw { name: 'ValidationError', message: 'Email already exists' };
 
     const panExists = await userRepository.findByPan(data.pan);
-    if (panExists) throw { name: 'ValidationError', message: 'PAN already exists' };
+    if (panExists) throw { name: 'ValidationError', message: 'PAN already registered' };
 
     const aadhaarExists = await userRepository.findByAadhaar(data.aadhaar);
-    if (aadhaarExists) throw { name: 'ValidationError', message: 'Aadhaar already exists' };
+    if (aadhaarExists) throw { name: 'ValidationError', message: 'Aadhaar already registered' };
 
     return userRepository.create({
       ...data,
@@ -32,12 +34,12 @@ export class UserService {
 
     if (data.pan && data.pan !== user.pan) {
       const panExists = await userRepository.findByPan(data.pan);
-      if (panExists) throw { name: 'ValidationError', message: 'PAN already exists' };
+      if (panExists) throw { name: 'ValidationError', message: 'PAN already registered' };
     }
 
     if (data.aadhaar && data.aadhaar !== user.aadhaar) {
       const aadhaarExists = await userRepository.findByAadhaar(data.aadhaar);
-      if (aadhaarExists) throw { name: 'ValidationError', message: 'Aadhaar already exists' };
+      if (aadhaarExists) throw { name: 'ValidationError', message: 'Aadhaar already registered' };
     }
 
     const updateData: any = { ...data };
@@ -127,6 +129,34 @@ export class UserService {
     if (!user.isDeleted) throw { name: 'ValidationError', message: 'User is not deleted' };
 
     return userRepository.restore(id);
+  }
+
+  async validateDocuments(pan?: string, aadhaar?: string) {
+    const result: any = {};
+
+    if (pan) {
+      const valid = validatePAN(pan);
+      let exists = false;
+      if (valid) {
+        exists = !!(await userRepository.findByPan(pan));
+      }
+      result.pan = { valid, exists };
+    }
+
+    if (aadhaar) {
+      const valid = validateAadhaar(aadhaar);
+      let exists = false;
+      if (valid) {
+        exists = !!(await userRepository.findByAadhaar(aadhaar));
+      }
+      result.aadhaar = { valid, exists };
+    }
+
+    // Determine overall success (if provided documents are valid and don't exist)
+    const success = (!pan || (result.pan.valid && !result.pan.exists)) && 
+                    (!aadhaar || (result.aadhaar.valid && !result.aadhaar.exists));
+
+    return { success, data: result };
   }
 }
 

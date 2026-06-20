@@ -1,7 +1,7 @@
 import { z } from 'zod';
+import { validatePAN } from '../../utils/panValidator';
+import { validateAadhaar } from '../../utils/aadhaarValidator';
 
-const PAN_REGEX = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
-const AADHAAR_REGEX = /^\d{12}$/;
 const MOBILE_REGEX = /^\d{10}$/;
 
 export const createUserSchema = z.object({
@@ -10,8 +10,8 @@ export const createUserSchema = z.object({
     email: z.string().email(),
     primaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits'),
     secondaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits').optional(),
-    aadhaar: z.string().regex(AADHAAR_REGEX, 'Must be exactly 12 digits'),
-    pan: z.string().regex(PAN_REGEX, 'Invalid PAN format'),
+    aadhaar: z.string().refine(validateAadhaar, 'Invalid Aadhaar number'),
+    pan: z.string().refine(validatePAN, 'Invalid PAN number'),
     dateOfBirth: z.string().refine((val) => {
       const date = new Date(val);
       return !isNaN(date.getTime()) && date <= new Date();
@@ -28,8 +28,8 @@ export const updateUserSchema = z.object({
     email: z.string().email().optional(),
     primaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits').optional(),
     secondaryMobile: z.string().regex(MOBILE_REGEX, 'Must be exactly 10 digits').optional(),
-    aadhaar: z.string().regex(AADHAAR_REGEX, 'Must be exactly 12 digits').optional(),
-    pan: z.string().regex(PAN_REGEX, 'Invalid PAN format').optional(),
+    aadhaar: z.string().refine(validateAadhaar, 'Invalid Aadhaar number').optional(),
+    pan: z.string().refine(validatePAN, 'Invalid PAN number').optional(),
     dateOfBirth: z.string().refine((val) => {
       const date = new Date(val);
       return !isNaN(date.getTime()) && date <= new Date();
@@ -58,5 +58,12 @@ export const getUsersQuerySchema = z.object({
     status: z.enum(['active', 'deleted', 'all']).optional(),
     sortBy: z.enum(['createdAt', 'name']).optional(),
     sortOrder: z.enum(['asc', 'desc']).optional(),
+  })
+});
+
+export const validateDocumentSchema = z.object({
+  body: z.object({
+    pan: z.string().optional(),
+    aadhaar: z.string().optional()
   })
 });

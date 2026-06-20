@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { userController } from './user.controller';
 import { validate } from '../../middleware/validate.middleware';
-import { createUserSchema, updateUserSchema, getUserParamsSchema, getUsersQuerySchema } from './user.validation';
+import { createUserSchema, updateUserSchema, getUserParamsSchema, getUsersQuerySchema, validateDocumentSchema } from './user.validation';
 
 const router = Router();
 
@@ -58,6 +58,8 @@ router.post('/', validate(createUserSchema), userController.create);
  *         description: List of users
  */
 router.get('/', validate(getUsersQuerySchema), userController.getUsers);
+
+router.post('/validate-document', validate(validateDocumentSchema), userController.validateDocuments);
 
 router.get('/:id', validate(getUserParamsSchema), userController.getById);
 router.patch('/:id', validate(updateUserSchema), userController.update);

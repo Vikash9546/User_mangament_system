@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getUserById, updateUser } from '../api/users';
+import { getUserById, updateUser, validateDocument } from '../api/users';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function EditUserPage() {
   const { id } = useParams();
@@ -14,6 +14,40 @@ export default function EditUserPage() {
     queryFn: () => getUserById(id as string),
     enabled: !!id,
   });
+
+  const [pan, setPan] = useState('');
+  const [aadhaar, setAadhaar] = useState('');
+  const [panStatus, setPanStatus] = useState<{valid: boolean; exists: boolean} | null>(null);
+  const [aadhaarStatus, setAadhaarStatus] = useState<{valid: boolean; exists: boolean} | null>(null);
+  const [isValidating, setIsValidating] = useState(false);
+
+  useEffect(() => {
+    if (user && !pan && !aadhaar) {
+      setPan(user.pan);
+      setAadhaar(user.aadhaar);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const payload: any = {};
+      if (pan && pan !== user?.pan && pan.length >= 10) payload.pan = pan;
+      if (aadhaar && aadhaar !== user?.aadhaar && aadhaar.length >= 12) payload.aadhaar = aadhaar;
+      
+      if (Object.keys(payload).length > 0) {
+        setIsValidating(true);
+        validateDocument(payload).then((res: any) => {
+          if (payload.pan && res.data.pan) setPanStatus(res.data.pan);
+          if (payload.aadhaar && res.data.aadhaar) setAadhaarStatus(res.data.aadhaar);
+        }).catch(() => {}).finally(() => setIsValidating(false));
+      } else {
+        if (pan === user?.pan) setPanStatus(null);
+        if (aadhaar === user?.aadhaar) setAadhaarStatus(null);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [pan, aadhaar, user]);
 
   const mutation = useMutation({
     mutationFn: (data: any) => updateUser(id as string, data),
@@ -61,11 +95,53 @@ export default function EditUserPage() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Aadhaar</label>
-            <input name="aadhaar" defaultValue={user.aadhaar} required pattern="^\d{12}$" className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+            <input 
+              name="aadhaar" 
+              required 
+              value={aadhaar}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\s+/g, '');
+                setAadhaar(val);
+                setAadhaarStatus(null);
+              }}
+              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none ${
+                aadhaarStatus && !aadhaarStatus.valid ? 'border-red-500' : 
+                aadhaarStatus && aadhaarStatus.exists ? 'border-red-500' :
+                aadhaarStatus?.valid ? 'border-green-500' : 'border-gray-200'
+              }`} 
+            />
+            {aadhaarStatus && (
+              <p className={`text-sm mt-1 ${aadhaarStatus.valid && !aadhaarStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
+                {aadhaarStatus.exists ? '✗ Aadhaar already exists' : 
+                 !aadhaarStatus.valid ? '✗ Invalid Aadhaar' : '✓ Aadhaar is valid'}
+              </p>
+            )}
+            {isValidating && <p className="text-sm mt-1 text-gray-500">Checking...</p>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">PAN</label>
-            <input name="pan" defaultValue={user.pan} required pattern="^[A-Z]{5}[0-9]{4}[A-Z]{1}$" className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none uppercase" />
+            <input 
+              name="pan" 
+              required 
+              value={pan}
+              onChange={(e) => {
+                const val = e.target.value.toUpperCase();
+                setPan(val);
+                setPanStatus(null);
+              }}
+              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none uppercase ${
+                panStatus && !panStatus.valid ? 'border-red-500' : 
+                panStatus && panStatus.exists ? 'border-red-500' :
+                panStatus?.valid ? 'border-green-500' : 'border-gray-200'
+              }`} 
+            />
+            {panStatus && (
+              <p className={`text-sm mt-1 ${panStatus.valid && !panStatus.exists ? 'text-green-600' : 'text-red-600'}`}>
+                {panStatus.exists ? '✗ PAN already exists' : 
+                 !panStatus.valid ? '✗ Invalid PAN format' : '✓ PAN is valid'}
+              </p>
+            )}
+            {isValidating && <p className="text-sm mt-1 text-gray-500">Checking...</p>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
@@ -86,7 +162,7 @@ export default function EditUserPage() {
         </div>
         <div className="flex justify-end gap-4 pt-4 border-t border-gray-100">
           <button type="button" onClick={() => navigate(-1)} className="px-6 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">Cancel</button>
-          <button type="submit" disabled={mutation.isPending} className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50">
+          <button type="submit" disabled={mutation.isPending || isValidating || (panStatus && (!panStatus.valid || panStatus.exists)) || (aadhaarStatus && (!aadhaarStatus.valid || aadhaarStatus.exists))} className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50">
             {mutation.isPending ? 'Saving...' : 'Save Changes'}
           </button>
         </div>
