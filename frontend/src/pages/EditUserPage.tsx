@@ -2,7 +2,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getUserById, updateUser, validateDocument } from '../api/users';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { User, AtSign, IdCard, Home, AlertCircle } from 'lucide-react';
+import { User, AtSign, IdCard, Home, AlertCircle, CheckCircle, XCircle } from 'lucide-react';
 
 const Card = ({ title, icon: Icon, children }: any) => (
   <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden mb-6">

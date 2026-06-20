@@ -349,3 +349,108 @@
 {"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T12:12:40.721Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=all","timestamp":"2026-06-20T12:15:42.515Z"}
 {"level":"info","message":"GET /api/v1/users?cursor=MmU3ZGQxMGQtYTNhOS00YjY0LWI1MzktMmM0NmEyNGFhMzFi&limit=10&search=&status=all","timestamp":"2026-06-20T12:15:43.483Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=all","timestamp":"2026-06-20T12:19:53.793Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:07:47.129Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:08:38.592Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:07.992Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:08.002Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:08.003Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:08.008Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:08.014Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:08.014Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:14.002Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:14.002Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:14.009Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:14.010Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:14.013Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:14.014Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:25.882Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:25.891Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:25.892Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:25.908Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:25.914Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:25.914Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:38.613Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:38.776Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:38.776Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:38.803Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:41.768Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:41.784Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:41.785Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:09:41.989Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:09:41.995Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:09:41.995Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:10:10.666Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:10:10.669Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:10:10.669Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:10:10.668Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:10:10.671Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:10:10.671Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:10:31.488Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:10:33.816Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:10:45.635Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:10:45.631Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:10:45.662Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:10:45.662Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:10:45.662Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:10:45.664Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:11:49.557Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:11:49.563Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:11:49.563Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:11:49.906Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:11:49.911Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:11:49.912Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:13:43.022Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:13:43.443Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:13:50.082Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:13:50.089Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:13:50.089Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T18:13:51.119Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:13:57.524Z"}
+{"level":"info","message":"GET /api/v1/users/61d72832-bde3-4ffc-83c5-784f2c536ac6","timestamp":"2026-06-20T18:14:00.134Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:14:10.746Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=deleted","timestamp":"2026-06-20T18:14:14.243Z"}
+{"level":"info","message":"GET /api/v1/users/a2e40a87-e5c2-4bca-aec2-95032ea33950","timestamp":"2026-06-20T18:14:15.661Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:14:30.272Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:14:53.100Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:14:58.102Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:15:29.609Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:15:29.613Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:15:29.613Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:15:29.681Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T18:15:34.090Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:15:41.836Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:32:44.464Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:35:57.169Z"}
+{"level":"info","message":"Connected to the database successfully.","timestamp":"2026-06-20T18:36:45.516Z"}
+{"level":"info","message":"Server is running on port 5001 in development mode.","timestamp":"2026-06-20T18:36:45.528Z"}
+{"level":"info","message":"Swagger docs available at http://localhost:5001/api-docs","timestamp":"2026-06-20T18:36:45.529Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:36:47.300Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:36:53.331Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:37:13.276Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:40:03.925Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:40:49.927Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:43:10.667Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:43:20.053Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:44:19.966Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:45:02.588Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:46:36.558Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:46:50.112Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:47:45.546Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:47:51.246Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=deleted","timestamp":"2026-06-20T18:47:55.690Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=deleted","timestamp":"2026-06-20T18:50:37.668Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=deleted","timestamp":"2026-06-20T18:50:43.724Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=deleted","timestamp":"2026-06-20T18:51:05.263Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:51:07.354Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T18:51:09.604Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:51:11.114Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=deleted","timestamp":"2026-06-20T18:51:16.894Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:51:31.674Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:52:01.341Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T18:52:03.731Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:52:05.228Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T18:52:07.210Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:52:13.590Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:52:23.691Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T18:57:05.805Z"}
