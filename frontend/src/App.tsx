@@ -35,7 +35,7 @@ function App() {
       <div className="min-h-screen bg-pink-50 flex dark:bg-gray-900 transition-colors duration-300">
         <Toaster position="top-right" />
         {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-gray-200 shadow-sm hidden md:block dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+        <aside className="w-64 bg-white border-r border-pink-100 shadow-sm hidden md:block dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
           <div className="p-6">
             <Link to="/" className="block hover:opacity-80 transition-opacity">
               <h1 className="text-xl font-bold text-pink-600 dark:text-pink-400">Admin Portal</h1>
@@ -56,7 +56,7 @@ function App() {
 
         {/* Main Content */}
         <main className="flex-1 overflow-x-hidden overflow-y-auto">
-          <header className="bg-white border-b border-gray-200 p-4 shadow-sm flex justify-between items-center dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+          <header className="bg-white border-b border-pink-100 p-4 shadow-sm flex justify-between items-center dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
             <Link to="/" className="inline-block hover:opacity-80 transition-opacity">
               <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">User Management System</h2>
             </Link>

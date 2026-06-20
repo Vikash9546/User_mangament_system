@@ -467,3 +467,8 @@
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:36:06.565Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:36:10.634Z"}
 {"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:38:41.909Z"}
+{"level":"info","message":"GET /api/v1/users?limit=10&search=&status=active","timestamp":"2026-06-20T19:40:41.296Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T19:40:43.505Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T19:40:48.544Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T19:40:53.846Z"}
+{"level":"info","message":"GET /api/v1/users/cdefdb65-7cd9-4400-8e57-012d27370bbc","timestamp":"2026-06-20T19:41:05.531Z"}

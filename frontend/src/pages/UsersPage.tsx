@@ -63,19 +63,19 @@ export default function UsersPage() {
         </Link>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+      <div className="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-xl shadow-sm border border-pink-50 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 dark:text-gray-500" />
           <input
             type="text"
             placeholder="Search by name, email, PAN..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-pink-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-pink-400 transition-colors duration-300"
+            className="w-full pl-10 pr-4 py-2 border border-pink-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-pink-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-pink-400 transition-colors duration-300"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <select
-          className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-pink-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-pink-400 transition-colors duration-300"
+          className="px-4 py-2 border border-pink-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-pink-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-pink-400 transition-colors duration-300"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
@@ -85,18 +85,18 @@ export default function UsersPage() {
         </select>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+      <div className="bg-white rounded-xl shadow-sm border border-pink-50 overflow-hidden dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-pink-50 border-b border-gray-100 text-gray-500 text-sm uppercase tracking-wider dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400 transition-colors duration-300">
+              <tr className="bg-pink-50 border-b border-pink-50 text-gray-500 text-sm uppercase tracking-wider dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400 transition-colors duration-300">
                 <th className="p-4 font-medium">User Info</th>
                 <th className="p-4 font-medium">Contact</th>
                 <th className="p-4 font-medium">Status</th>
                 <th className="p-4 font-medium text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+            <tbody className="divide-y divide-pink-50 dark:divide-gray-700">
               {users.map(user => (
                 <tr key={user.id} onClick={() => navigate(`/users/${user.id}`)} className="hover:bg-pink-50 transition-colors cursor-pointer dark:hover:bg-gray-700">
                   <td className="p-4">
@@ -148,11 +148,11 @@ export default function UsersPage() {
           </table>
         </div>
         {hasNextPage && (
-          <div className="p-4 border-t border-gray-100 flex justify-center dark:border-gray-700 transition-colors duration-300">
+          <div className="p-4 border-t border-pink-50 flex justify-center dark:border-gray-700 transition-colors duration-300">
             <button
               onClick={() => fetchNextPage()}
               disabled={isFetchingNextPage}
-              className="px-6 py-2 border border-gray-200 text-gray-600 rounded-lg hover:bg-pink-50 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+              className="px-6 py-2 border border-pink-100 text-gray-600 rounded-lg hover:bg-pink-50 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
             >
               {isFetchingNextPage ? 'Loading more...' : 'Load More'}
             </button>
