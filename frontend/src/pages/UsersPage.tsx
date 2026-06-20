@@ -49,7 +49,13 @@ export default function UsersPage() {
     },
   });
 
-  if (isLoading) return <div className="p-8 text-center font-bold text-lg animate-color-blink">Deployed on render free tier it's take few sec Loading users Please wait...</div>;
+  if (isLoading) return (
+    <div className="p-8 text-center font-bold text-lg animate-color-blink flex flex-col items-center justify-center space-y-3">
+      <div className="text-5xl">😞</div>
+      <div>Deployed on render free tier it's take few sec Loading users Please wait...</div>
+    </div>
+  );
+
 
   const users = data?.pages.flatMap(page => page.data) || [];
 
