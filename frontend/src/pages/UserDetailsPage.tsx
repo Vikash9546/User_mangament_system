@@ -29,8 +29,8 @@ export default function UserDetailsPage() {
         </Link>
       </div>
 
-      <div className="bg-gradient-to-br from-pink-50 via-white to-white p-8 rounded-xl shadow-sm border border-pink-100 dark:bg-none dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
-        <div className="flex items-start justify-between border-b border-pink-50 dark:border-gray-700 pb-6 mb-6">
+      <div className="bg-gradient-to-br from-pink-50 via-white to-white p-4 sm:p-6 md:p-8 rounded-xl shadow-sm border border-pink-100 dark:bg-none dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 border-b border-pink-50 dark:border-gray-700 pb-6 mb-6">
           <div className="flex items-center">
             <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 text-2xl font-bold mr-6">
               {user.name.charAt(0).toUpperCase()}

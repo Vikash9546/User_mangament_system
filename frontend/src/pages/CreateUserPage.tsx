@@ -6,13 +6,13 @@ import { User, AtSign, IdCard, Home, AlertCircle, CheckCircle, XCircle } from 'l
 
 const Card = ({ title, icon: Icon, children }: any) => (
   <div className="bg-gradient-to-br from-pink-50 via-white to-white border border-pink-100 rounded-lg shadow-sm overflow-hidden mb-6 dark:bg-none dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
-    <div className="bg-pink-50 border-b border-pink-100 px-6 py-4 flex items-center gap-3 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
+    <div className="bg-pink-50 border-b border-pink-100 px-4 sm:px-6 py-4 flex items-center gap-3 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
       <div className="p-1.5 bg-pink-100 text-pink-600 rounded-md dark:bg-pink-900/30 dark:text-pink-400">
         <Icon size={20} />
       </div>
       <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{title}</h2>
     </div>
-    <div className="p-6">
+    <div className="p-4 sm:p-6">
       {children}
     </div>
   </div>
@@ -229,7 +229,7 @@ export default function CreateUserPage() {
           </Card>
 
           {/* Bottom Actions */}
-          <div className="flex justify-end gap-4 mt-8">
+          <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 sm:gap-4 mt-8">
             <button type="button" onClick={() => navigate(-1)} className="px-6 py-2.5 border border-pink-200 text-gray-700 bg-white rounded-lg hover:bg-pink-50 font-medium transition-all duration-200 hover:-translate-y-0.5 active:scale-95 dark:border-gray-600 dark:text-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700">Cancel</button>
             <button type="submit" disabled={isSubmitDisabled} className="px-6 py-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0">
               {mutation.isPending ? 'Saving...' : 'Create User'}

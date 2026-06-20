@@ -17,7 +17,7 @@ const LoadingMessage = () => {
   }, []);
 
   return (
-    <div className="p-8 text-center font-bold text-lg animate-color-blink flex flex-col items-center justify-center space-y-3">
+    <div className="p-4 sm:p-8 text-center font-bold text-lg animate-color-blink flex flex-col items-center justify-center space-y-3">
       <div className="text-5xl">{sadEmojis[emojiIndex]}</div>
       <div>Deployed on render free tier it's take few sec Loading users Please wait...</div>
     </div>
@@ -110,16 +110,16 @@ export default function UsersPage() {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-pink-50 border-b border-pink-50 text-gray-500 text-sm uppercase tracking-wider dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400 transition-colors duration-300">
-                <th className="p-4 font-medium">User Info</th>
-                <th className="p-4 font-medium">Contact</th>
-                <th className="p-4 font-medium">Status</th>
-                <th className="p-4 font-medium text-right">Actions</th>
+                <th className="p-3 sm:p-4 font-medium">User Info</th>
+                <th className="p-3 sm:p-4 font-medium">Contact</th>
+                <th className="p-3 sm:p-4 font-medium">Status</th>
+                <th className="p-3 sm:p-4 font-medium text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-pink-50 dark:divide-gray-700">
               {users.map(user => (
                 <tr key={user.id} onClick={() => navigate(`/users/${user.id}`)} className="hover:bg-pink-50 transition-colors cursor-pointer dark:hover:bg-gray-700">
-                  <td className="p-4">
+                  <td className="p-3 sm:p-4">
                     <div className="flex items-center">
                       <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold mr-3 dark:bg-pink-900/30 dark:text-pink-400">
                         {user.name.charAt(0).toUpperCase()}
@@ -130,14 +130,14 @@ export default function UsersPage() {
                       </div>
                     </div>
                   </td>
-                  <td className="p-4 text-gray-600 text-sm dark:text-gray-400">{user.primaryMobile}</td>
-                  <td className="p-4">
+                  <td className="p-3 sm:p-4 text-gray-600 text-sm dark:text-gray-400">{user.primaryMobile}</td>
+                  <td className="p-3 sm:p-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${user.isDeleted ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' : 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'}`}>
                       {user.isDeleted ? 'Deleted' : 'Active'}
                     </span>
                   </td>
                   <td className="p-4 text-right">
-                    <div className="flex items-center justify-end space-x-2">
+                    <div className="flex flex-wrap items-center justify-end gap-2 space-x-0">
                       <Link to={`/users/${user.id}/edit`} onClick={(e) => e.stopPropagation()} className="p-2 text-gray-400 hover:text-pink-600 rounded-lg hover:bg-pink-50 transition-all duration-200 hover:scale-110 active:scale-95">
                         <Edit className="w-5 h-5" />
                       </Link>
@@ -161,7 +161,7 @@ export default function UsersPage() {
               ))}
               {users.length === 0 && (
                 <tr>
-                  <td colSpan={4} className="p-8 text-center text-gray-500 dark:text-gray-400">No users found.</td>
+                  <td colSpan={4} className="p-4 sm:p-8 text-center text-gray-500 dark:text-gray-400">No users found.</td>
                 </tr>
               )}
             </tbody>
