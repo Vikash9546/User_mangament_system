@@ -19,11 +19,11 @@ export default function UserDetailsPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex justify-between items-center">
-        <button onClick={() => navigate(-1)} className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+        <button onClick={() => navigate(-1)} className="flex items-center text-gray-600 hover:text-blue-600 transition-all duration-200 hover:-translate-x-1">
           <ArrowLeft className="w-5 h-5 mr-2" />
           Back
         </button>
-        <Link to={`/users/${user.id}/edit`} className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center hover:bg-blue-700 transition-colors">
+        <Link to={`/users/${user.id}/edit`} className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center hover:bg-blue-700 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95">
           <Edit className="w-4 h-4 mr-2" />
           Edit User
         </Link>

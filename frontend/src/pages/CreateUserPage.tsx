@@ -98,7 +98,7 @@ export default function CreateUserPage() {
 
         <form id="user-form" onSubmit={handleSubmit} className="space-y-6">
           
-          <Card title="Personal Information" icon={User}>
+          <Card title="Personal Snapshot" icon={User}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name <span className="text-red-500">*</span></label>
@@ -115,7 +115,7 @@ export default function CreateUserPage() {
             </div>
           </Card>
 
-          <Card title="Contact Details" icon={AtSign}>
+          <Card title="Contact Hub" icon={AtSign}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address <span className="text-red-500">*</span></label>
@@ -132,7 +132,7 @@ export default function CreateUserPage() {
             </div>
           </Card>
 
-          <Card title="Identity Documents" icon={IdCard}>
+          <Card title="Identity Records" icon={IdCard}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Aadhaar / National ID <span className="text-red-500">*</span></label>
@@ -187,7 +187,7 @@ export default function CreateUserPage() {
             </div>
           </Card>
 
-          <Card title="Residential Addresses" icon={Home}>
+          <Card title="Address Details" icon={Home}>
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Current Residence <span className="text-red-500">*</span></label>
@@ -230,8 +230,8 @@ export default function CreateUserPage() {
 
           {/* Bottom Actions */}
           <div className="flex justify-end gap-4 mt-8">
-            <button type="button" onClick={() => navigate(-1)} className="px-6 py-2.5 border border-gray-300 text-gray-700 bg-white rounded-lg hover:bg-gray-50 font-medium transition-colors">Cancel</button>
-            <button type="submit" disabled={isSubmitDisabled} className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors disabled:opacity-50">
+            <button type="button" onClick={() => navigate(-1)} className="px-6 py-2.5 border border-gray-300 text-gray-700 bg-white rounded-lg hover:bg-gray-50 font-medium transition-all duration-200 hover:-translate-y-0.5 active:scale-95">Cancel</button>
+            <button type="submit" disabled={isSubmitDisabled} className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0">
               {mutation.isPending ? 'Saving...' : 'Create User'}
             </button>
           </div>

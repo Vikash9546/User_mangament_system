@@ -20,12 +20,12 @@ function App() {
             </Link>
           </div>
           <nav className="mt-6 px-4 space-y-2">
-            <Link to="/" className="flex items-center px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-              <Users className="w-5 h-5 mr-3 text-blue-600" />
+            <Link to="/" className="group flex items-center px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition-all duration-300 hover:translate-x-2 hover:shadow-md">
+              <Users className="w-5 h-5 mr-3 text-blue-600 transform group-hover:scale-125 group-hover:rotate-6 transition-all duration-300" />
               <span className="font-medium">Users Dashboard</span>
             </Link>
-            <Link to="/users/new" className="flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
-              <UserPlus className="w-5 h-5 mr-3" />
+            <Link to="/users/new" className="group flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-blue-50 transition-all duration-300 hover:translate-x-2 hover:shadow-md hover:text-blue-700">
+              <UserPlus className="w-5 h-5 mr-3 transform group-hover:text-blue-600 group-hover:scale-125 group-hover:-rotate-6 transition-all duration-300" />
               <span className="font-medium">Create User</span>
             </Link>
           </nav>

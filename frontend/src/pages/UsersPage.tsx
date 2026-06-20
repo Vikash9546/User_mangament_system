@@ -57,7 +57,7 @@ export default function UsersPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-2xl font-bold text-gray-800">Users</h1>
-        <Link to="/users/new" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center shadow-sm transition-colors">
+        <Link to="/users/new" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95">
           <Plus className="w-5 h-5 mr-2" />
           Add New User
         </Link>
@@ -118,20 +118,20 @@ export default function UsersPage() {
                   </td>
                   <td className="p-4 text-right">
                     <div className="flex items-center justify-end space-x-2">
-                      <Link to={`/users/${user.id}/edit`} onClick={(e) => e.stopPropagation()} className="p-2 text-gray-400 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                      <Link to={`/users/${user.id}/edit`} onClick={(e) => e.stopPropagation()} className="p-2 text-gray-400 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200 hover:scale-110 active:scale-95">
                         <Edit className="w-5 h-5" />
                       </Link>
                       {user.isDeleted ? (
                         <>
-                          <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'restore', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-green-600 rounded-lg hover:bg-green-50 transition-colors" title="Restore User">
+                          <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'restore', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-green-600 rounded-lg hover:bg-green-50 transition-all duration-200 hover:scale-110 active:scale-95" title="Restore User">
                             <RotateCcw className="w-5 h-5" />
                           </button>
-                          <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'hard-delete', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors" title="Delete Permanently">
+                          <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'hard-delete', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all duration-200 hover:scale-110 active:scale-95" title="Delete Permanently">
                             <Trash2 className="w-5 h-5" />
                           </button>
                         </>
                       ) : (
-                        <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'delete', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors" title="Delete User">
+                        <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'delete', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-all duration-200 hover:scale-110 active:scale-95" title="Delete User">
                           <Trash2 className="w-5 h-5" />
                         </button>
                       )}
@@ -152,7 +152,7 @@ export default function UsersPage() {
             <button
               onClick={() => fetchNextPage()}
               disabled={isFetchingNextPage}
-              className="px-6 py-2 border border-gray-200 text-gray-600 rounded-lg hover:bg-gray-50 transition-colors disabled:opacity-50"
+              className="px-6 py-2 border border-gray-200 text-gray-600 rounded-lg hover:bg-gray-50 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0"
             >
               {isFetchingNextPage ? 'Loading more...' : 'Load More'}
             </button>
@@ -190,7 +190,7 @@ export default function UsersPage() {
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setConfirmAction(null)}
-                className="flex-1 px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+                className="flex-1 px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-medium"
               >
                 Cancel
               </button>
@@ -205,7 +205,7 @@ export default function UsersPage() {
                   }
                   setConfirmAction(null);
                 }}
-                className={`flex-1 px-4 py-2 text-white rounded-lg transition-colors font-medium ${
+                className={`flex-1 px-4 py-2 text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95 font-medium ${
                   confirmAction.type === 'delete' || confirmAction.type === 'hard-delete' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
                 }`}
               >

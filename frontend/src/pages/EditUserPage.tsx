@@ -250,8 +250,8 @@ export default function EditUserPage() {
 
           {/* Bottom Actions */}
           <div className="flex justify-end gap-4 mt-8">
-            <button type="button" onClick={() => navigate(-1)} className="px-6 py-2.5 border border-gray-300 text-gray-700 bg-white rounded-lg hover:bg-gray-50 font-medium transition-colors">Cancel</button>
-            <button type="submit" disabled={isSubmitDisabled} className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors disabled:opacity-50">
+            <button type="button" onClick={() => navigate(-1)} className="px-6 py-2.5 border border-gray-300 text-gray-700 bg-white rounded-lg hover:bg-gray-50 font-medium transition-all duration-200 hover:-translate-y-0.5 active:scale-95">Cancel</button>
+            <button type="submit" disabled={isSubmitDisabled} className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0">
               {mutation.isPending ? 'Saving...' : 'Save Changes'}
             </button>
           </div>
