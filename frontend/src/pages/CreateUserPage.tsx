@@ -110,7 +110,7 @@ export default function CreateUserPage() {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Place of Birth <span className="text-red-500">*</span></label>
-                <input name="placeOfBirth" required placeholder="Tell us which City, Country the magic happens..." className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
+                <input name="placeOfBirth" required placeholder="Tell us in which City, Country the magic happens..." className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow" />
               </div>
             </div>
           </Card>
