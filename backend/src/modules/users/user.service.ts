@@ -57,7 +57,7 @@ export class UserService {
   }
 
   async getUsers(query: GetUsersQuery) {
-    const limit = query.limit || 10;
+    const limit = Number(query.limit) || 10;
     const { cursor, search, status, sortBy = 'createdAt', sortOrder = 'desc' } = query;
 
     const where: Prisma.UserWhereInput = {};

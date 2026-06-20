@@ -10,8 +10,13 @@ import { logger } from './utils/logger';
 const app: Express = express();
 
 // Security Middlewares
-app.use(helmet());
-app.use(cors());
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+}));
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  credentials: true,
+}));
 
 // Rate limiting: 100 requests every 15 minutes
 const limiter = rateLimit({

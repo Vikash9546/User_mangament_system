@@ -5,11 +5,17 @@ import { sendError } from '../utils/response';
 export const validate = (schema: z.Schema) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await schema.parseAsync({
+      const parsed: any = await schema.parseAsync({
         body: req.body,
         query: req.query,
         params: req.params,
       });
+      req.body = parsed.body;
+      // req.query and req.params might only have getters in some Express environments
+      Object.keys(req.query).forEach(k => delete req.query[k]);
+      Object.assign(req.query, parsed.query);
+      Object.keys(req.params).forEach(k => delete req.params[k]);
+      Object.assign(req.params, parsed.params);
       return next();
     } catch (error) {
       if (error instanceof ZodError) {
