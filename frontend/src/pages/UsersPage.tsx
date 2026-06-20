@@ -49,7 +49,7 @@ export default function UsersPage() {
     },
   });
 
-  if (isLoading) return <div className="p-8 text-center text-gray-500">Loading users...</div>;
+  if (isLoading) return <div className="p-8 text-center text-gray-500">Deployed on render free tier it's take few sec Loading users Please wait...</div>;
 
   const users = data?.pages.flatMap(page => page.data) || [];
 
