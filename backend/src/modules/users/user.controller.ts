@@ -1,0 +1,65 @@
+import { Request, Response, NextFunction } from 'express';
+import { userService } from './user.service';
+import { sendSuccess } from '../../utils/response';
+
+export class UserController {
+  async create(req: Request, res: Response, next: NextFunction) {
+    try {
+      const user = await userService.create(req.body);
+      return sendSuccess(res, 'User created successfully', user, 201);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const user = await userService.update(req.params.id, req.body);
+      return sendSuccess(res, 'User updated successfully', user);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async getById(req: Request, res: Response, next: NextFunction) {
+    try {
+      const user = await userService.getById(req.params.id);
+      return sendSuccess(res, 'User retrieved successfully', user);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async getUsers(req: Request, res: Response, next: NextFunction) {
+    try {
+      const data = await userService.getUsers(req.query);
+      return res.status(200).json({
+        success: true,
+        data: data.users,
+        pagination: data.pagination
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async delete(req: Request, res: Response, next: NextFunction) {
+    try {
+      await userService.delete(req.params.id);
+      return sendSuccess(res, 'User deleted successfully');
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async restore(req: Request, res: Response, next: NextFunction) {
+    try {
+      const user = await userService.restore(req.params.id);
+      return sendSuccess(res, 'User restored successfully', user);
+    } catch (error) {
+      next(error);
+    }
+  }
+}
+
+export const userController = new UserController();
