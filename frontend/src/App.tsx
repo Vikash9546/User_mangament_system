@@ -32,23 +32,23 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-50 flex dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen bg-pink-50 flex dark:bg-gray-900 transition-colors duration-300">
         <Toaster position="top-right" />
         {/* Sidebar */}
         <aside className="w-64 bg-white border-r border-gray-200 shadow-sm hidden md:block dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300">
           <div className="p-6">
             <Link to="/" className="block hover:opacity-80 transition-opacity">
-              <h1 className="text-xl font-bold text-blue-600 dark:text-blue-400">Admin Portal</h1>
+              <h1 className="text-xl font-bold text-pink-600 dark:text-pink-400">Admin Portal</h1>
               <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Enterprise Management</p>
             </Link>
           </div>
           <nav className="mt-6 px-4 space-y-2">
-            <Link to="/" className="group flex items-center px-4 py-3 text-gray-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition-all duration-300 hover:translate-x-2 hover:shadow-md dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
-              <Users className="w-5 h-5 mr-3 text-blue-600 dark:text-blue-400 transform group-hover:scale-125 group-hover:rotate-6 transition-all duration-300" />
+            <Link to="/" className="group flex items-center px-4 py-3 text-gray-700 bg-pink-50 rounded-lg hover:bg-pink-100 transition-all duration-300 hover:translate-x-2 hover:shadow-md dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+              <Users className="w-5 h-5 mr-3 text-pink-600 dark:text-pink-400 transform group-hover:scale-125 group-hover:rotate-6 transition-all duration-300" />
               <span className="font-medium">Users Dashboard</span>
             </Link>
-            <Link to="/users/new" className="group flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-blue-50 transition-all duration-300 hover:translate-x-2 hover:shadow-md hover:text-blue-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-blue-400">
-              <UserPlus className="w-5 h-5 mr-3 transform group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:scale-125 group-hover:-rotate-6 transition-all duration-300" />
+            <Link to="/users/new" className="group flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-pink-50 transition-all duration-300 hover:translate-x-2 hover:shadow-md hover:text-pink-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-pink-400">
+              <UserPlus className="w-5 h-5 mr-3 transform group-hover:text-pink-600 dark:group-hover:text-pink-400 group-hover:scale-125 group-hover:-rotate-6 transition-all duration-300" />
               <span className="font-medium">Create User</span>
             </Link>
           </nav>
@@ -63,7 +63,7 @@ function App() {
             <button
               type="button"
               onClick={() => setIsDarkMode(prev => !prev)}
-              className="p-2 text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-all duration-300 active:scale-95 dark:text-gray-400 dark:hover:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600"
+              className="p-2 text-gray-500 hover:text-gray-700 bg-pink-100/50 hover:bg-gray-200 rounded-lg transition-all duration-300 active:scale-95 dark:text-gray-400 dark:hover:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600"
               title="Toggle Dark Mode"
             >
               {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

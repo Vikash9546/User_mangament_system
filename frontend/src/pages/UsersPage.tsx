@@ -57,7 +57,7 @@ export default function UsersPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Users</h1>
-        <Link to="/users/new" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95">
+        <Link to="/users/new" className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg flex items-center shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:scale-95">
           <Plus className="w-5 h-5 mr-2" />
           Add New User
         </Link>
@@ -69,13 +69,13 @@ export default function UsersPage() {
           <input
             type="text"
             placeholder="Search by name, email, PAN..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-blue-400 transition-colors duration-300"
+            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-pink-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-pink-400 transition-colors duration-300"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <select
-          className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-blue-400 transition-colors duration-300"
+          className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-pink-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:focus:ring-pink-400 transition-colors duration-300"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
@@ -89,7 +89,7 @@ export default function UsersPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-gray-50 border-b border-gray-100 text-gray-500 text-sm uppercase tracking-wider dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400 transition-colors duration-300">
+              <tr className="bg-pink-50 border-b border-gray-100 text-gray-500 text-sm uppercase tracking-wider dark:bg-gray-900 dark:border-gray-700 dark:text-gray-400 transition-colors duration-300">
                 <th className="p-4 font-medium">User Info</th>
                 <th className="p-4 font-medium">Contact</th>
                 <th className="p-4 font-medium">Status</th>
@@ -98,10 +98,10 @@ export default function UsersPage() {
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
               {users.map(user => (
-                <tr key={user.id} onClick={() => navigate(`/users/${user.id}`)} className="hover:bg-gray-50 transition-colors cursor-pointer dark:hover:bg-gray-700">
+                <tr key={user.id} onClick={() => navigate(`/users/${user.id}`)} className="hover:bg-pink-50 transition-colors cursor-pointer dark:hover:bg-gray-700">
                   <td className="p-4">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mr-3 dark:bg-blue-900/30 dark:text-blue-400">
+                      <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold mr-3 dark:bg-pink-900/30 dark:text-pink-400">
                         {user.name.charAt(0).toUpperCase()}
                       </div>
                       <div>
@@ -118,7 +118,7 @@ export default function UsersPage() {
                   </td>
                   <td className="p-4 text-right">
                     <div className="flex items-center justify-end space-x-2">
-                      <Link to={`/users/${user.id}/edit`} onClick={(e) => e.stopPropagation()} className="p-2 text-gray-400 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200 hover:scale-110 active:scale-95">
+                      <Link to={`/users/${user.id}/edit`} onClick={(e) => e.stopPropagation()} className="p-2 text-gray-400 hover:text-pink-600 rounded-lg hover:bg-pink-50 transition-all duration-200 hover:scale-110 active:scale-95">
                         <Edit className="w-5 h-5" />
                       </Link>
                       {user.isDeleted ? (
@@ -152,7 +152,7 @@ export default function UsersPage() {
             <button
               onClick={() => fetchNextPage()}
               disabled={isFetchingNextPage}
-              className="px-6 py-2 border border-gray-200 text-gray-600 rounded-lg hover:bg-gray-50 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+              className="px-6 py-2 border border-gray-200 text-gray-600 rounded-lg hover:bg-pink-50 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 disabled:opacity-50 disabled:hover:translate-y-0 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
             >
               {isFetchingNextPage ? 'Loading more...' : 'Load More'}
             </button>
@@ -190,7 +190,7 @@ export default function UsersPage() {
             <div className="flex gap-3 justify-end">
               <button
                 onClick={() => setConfirmAction(null)}
-                className="flex-1 px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-medium dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                className="flex-1 px-4 py-2 text-gray-700 bg-pink-100/50 rounded-lg hover:bg-gray-200 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-medium dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
               >
                 Cancel
               </button>
