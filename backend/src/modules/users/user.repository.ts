@@ -62,6 +62,12 @@ export class UserRepository {
       },
     });
   }
+
+  async hardDelete(id: string): Promise<User> {
+    return prisma.user.delete({
+      where: { id },
+    });
+  }
 }
 
 export const userRepository = new UserRepository();

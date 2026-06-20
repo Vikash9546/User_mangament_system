@@ -39,6 +39,11 @@ export const deleteUser = async (id: string) => {
   return data.data;
 };
 
+export const hardDeleteUser = async (id: string) => {
+  const { data } = await api.delete(`/users/${id}/hard`);
+  return data.data;
+};
+
 export const restoreUser = async (id: string) => {
   const { data } = await api.patch(`/users/${id}/restore`);
   return data.data;

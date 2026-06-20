@@ -61,6 +61,15 @@ export class UserController {
     }
   }
 
+  async hardDelete(req: Request, res: Response, next: NextFunction) {
+    try {
+      await userService.hardDelete(req.params.id as string);
+      return sendSuccess(res, 'User permanently deleted');
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async validateDocuments(req: Request, res: Response, next: NextFunction) {
     try {
       const { pan, aadhaar } = req.body;

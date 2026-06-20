@@ -4,11 +4,13 @@ import CreateUserPage from './pages/CreateUserPage';
 import EditUserPage from './pages/EditUserPage';
 import UserDetailsPage from './pages/UserDetailsPage';
 import { Users, UserPlus } from 'lucide-react';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-gray-50 flex">
+        <Toaster position="top-right" />
         {/* Sidebar */}
         <aside className="w-64 bg-white border-r border-gray-200 shadow-sm hidden md:block">
           <div className="p-6">

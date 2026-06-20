@@ -131,6 +131,14 @@ export class UserService {
     return userRepository.restore(id);
   }
 
+  async hardDelete(id: string) {
+    const user = await userRepository.findById(id);
+    if (!user) throw { name: 'NotFoundError', message: 'User not found' };
+    if (!user.isDeleted) throw { name: 'ValidationError', message: 'User must be soft-deleted before permanent deletion' };
+
+    return userRepository.hardDelete(id);
+  }
+
   async validateDocuments(pan?: string, aadhaar?: string) {
     const result: any = {};
 

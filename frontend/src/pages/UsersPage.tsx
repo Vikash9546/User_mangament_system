@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getUsers, deleteUser, restoreUser } from '../api/users';
+import { getUsers, deleteUser, restoreUser, hardDeleteUser } from '../api/users';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, Edit, Trash2, RotateCcw, User, Plus } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { Search, Edit, Trash2, RotateCcw, User, Plus, AlertTriangle } from 'lucide-react';
 
 export default function UsersPage() {
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('active');
+  const [confirmAction, setConfirmAction] = useState<{type: 'delete'|'restore'|'hard-delete', id: string, name: string} | null>(null);
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
@@ -25,12 +27,26 @@ export default function UsersPage() {
 
   const deleteMutation = useMutation({
     mutationFn: deleteUser,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['users'] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['users'] });
+      toast.success('User deleted successfully');
+    },
   });
 
   const restoreMutation = useMutation({
     mutationFn: restoreUser,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['users'] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['users'] });
+      toast.success('User restored successfully');
+    },
+  });
+
+  const hardDeleteMutation = useMutation({
+    mutationFn: hardDeleteUser,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['users'] });
+      toast.success('User permanently deleted');
+    },
   });
 
   if (isLoading) return <div className="p-8 text-center text-gray-500">Loading users...</div>;
@@ -106,11 +122,16 @@ export default function UsersPage() {
                         <Edit className="w-5 h-5" />
                       </Link>
                       {user.isDeleted ? (
-                        <button onClick={(e) => { e.stopPropagation(); restoreMutation.mutate(user.id); }} className="p-2 text-gray-400 hover:text-green-600 rounded-lg hover:bg-green-50 transition-colors">
-                          <RotateCcw className="w-5 h-5" />
-                        </button>
+                        <>
+                          <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'restore', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-green-600 rounded-lg hover:bg-green-50 transition-colors" title="Restore User">
+                            <RotateCcw className="w-5 h-5" />
+                          </button>
+                          <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'hard-delete', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors" title="Delete Permanently">
+                            <Trash2 className="w-5 h-5" />
+                          </button>
+                        </>
                       ) : (
-                        <button onClick={(e) => { e.stopPropagation(); deleteMutation.mutate(user.id); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors">
+                        <button onClick={(e) => { e.stopPropagation(); setConfirmAction({ type: 'delete', id: user.id, name: user.name }); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors" title="Delete User">
                           <Trash2 className="w-5 h-5" />
                         </button>
                       )}
@@ -138,6 +159,48 @@ export default function UsersPage() {
           </div>
         )}
       </div>
+
+      {confirmAction && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setConfirmAction(null)}>
+          <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-6 transform transition-all" onClick={e => e.stopPropagation()}>
+            <div className={`flex items-center justify-center w-12 h-12 mx-auto rounded-full mb-4 ${confirmAction.type === 'delete' || confirmAction.type === 'hard-delete' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
+              {confirmAction.type === 'delete' || confirmAction.type === 'hard-delete' ? <AlertTriangle className="w-6 h-6" /> : <RotateCcw className="w-6 h-6" />}
+            </div>
+            <h3 className="text-xl font-bold text-center text-gray-900 mb-2">
+              {confirmAction.type === 'delete' ? 'Delete User' : confirmAction.type === 'hard-delete' ? 'Permanently Delete User' : 'Restore User'}
+            </h3>
+            <p className="text-center text-gray-600 mb-6">
+              Are you sure you want to {confirmAction.type === 'hard-delete' ? 'permanently delete' : confirmAction.type} <strong>{confirmAction.name}</strong>?
+              {confirmAction.type === 'hard-delete' && " This action cannot be undone."}
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setConfirmAction(null)}
+                className="flex-1 px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  if (confirmAction.type === 'delete') {
+                    deleteMutation.mutate(confirmAction.id);
+                  } else if (confirmAction.type === 'hard-delete') {
+                    hardDeleteMutation.mutate(confirmAction.id);
+                  } else {
+                    restoreMutation.mutate(confirmAction.id);
+                  }
+                  setConfirmAction(null);
+                }}
+                className={`flex-1 px-4 py-2 text-white rounded-lg transition-colors font-medium ${
+                  confirmAction.type === 'delete' || confirmAction.type === 'hard-delete' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
+                }`}
+              >
+                Confirm {confirmAction.type === 'hard-delete' ? 'Delete' : ''}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

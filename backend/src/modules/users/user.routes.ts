@@ -64,6 +64,7 @@ router.post('/validate-document', validate(validateDocumentSchema), userControll
 router.get('/:id', validate(getUserParamsSchema), userController.getById);
 router.patch('/:id', validate(updateUserSchema), userController.update);
 router.delete('/:id', validate(getUserParamsSchema), userController.delete);
+router.delete('/:id/hard', validate(getUserParamsSchema), userController.hardDelete);
 router.patch('/:id/restore', validate(getUserParamsSchema), userController.restore);
 
 export const userRoutes = router;
