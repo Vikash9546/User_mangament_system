@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getUsers, deleteUser, restoreUser } from '../api/users';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search, Edit, Trash2, RotateCcw, User, Plus } from 'lucide-react';
 
 export default function UsersPage() {
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('active');
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const {
     data,
@@ -81,14 +82,14 @@ export default function UsersPage() {
             </thead>
             <tbody className="divide-y divide-gray-100">
               {users.map(user => (
-                <tr key={user.id} className="hover:bg-gray-50 transition-colors">
+                <tr key={user.id} onClick={() => navigate(`/users/${user.id}`)} className="hover:bg-gray-50 transition-colors cursor-pointer">
                   <td className="p-4">
                     <div className="flex items-center">
                       <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mr-3">
                         {user.name.charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <Link to={`/users/${user.id}`} className="font-medium text-gray-900 hover:text-blue-600">{user.name}</Link>
+                        <span className="font-medium text-gray-900">{user.name}</span>
                         <div className="text-sm text-gray-500">{user.email}</div>
                       </div>
                     </div>
@@ -101,15 +102,15 @@ export default function UsersPage() {
                   </td>
                   <td className="p-4 text-right">
                     <div className="flex items-center justify-end space-x-2">
-                      <Link to={`/users/${user.id}/edit`} className="p-2 text-gray-400 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                      <Link to={`/users/${user.id}/edit`} onClick={(e) => e.stopPropagation()} className="p-2 text-gray-400 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
                         <Edit className="w-5 h-5" />
                       </Link>
                       {user.isDeleted ? (
-                        <button onClick={() => restoreMutation.mutate(user.id)} className="p-2 text-gray-400 hover:text-green-600 rounded-lg hover:bg-green-50 transition-colors">
+                        <button onClick={(e) => { e.stopPropagation(); restoreMutation.mutate(user.id); }} className="p-2 text-gray-400 hover:text-green-600 rounded-lg hover:bg-green-50 transition-colors">
                           <RotateCcw className="w-5 h-5" />
                         </button>
                       ) : (
-                        <button onClick={() => deleteMutation.mutate(user.id)} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors">
+                        <button onClick={(e) => { e.stopPropagation(); deleteMutation.mutate(user.id); }} className="p-2 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors">
                           <Trash2 className="w-5 h-5" />
                         </button>
                       )}
