@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useInfiniteQuery, useMutation, useQueryClient, keepPreviousData } from '@tanstack/react-query';
 import { getUsers, deleteUser, restoreUser, hardDeleteUser } from '../api/users';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -26,6 +26,12 @@ const LoadingMessage = () => {
 
 export default function UsersPage() {
   const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(search), 500);
+    return () => clearTimeout(timer);
+  }, [search]);
   const [status, setStatus] = useState('active');
   const [confirmAction, setConfirmAction] = useState<{type: 'delete'|'restore'|'hard-delete', id: string, name: string} | null>(null);
   const queryClient = useQueryClient();
@@ -38,10 +44,11 @@ export default function UsersPage() {
     isFetchingNextPage,
     isLoading,
   } = useInfiniteQuery({
-    queryKey: ['users', search, status],
-    queryFn: ({ pageParam }) => getUsers({ pageParam, limit: 10, search, status }),
+    queryKey: ['users', debouncedSearch, status],
+    queryFn: ({ pageParam }) => getUsers({ pageParam, limit: 10, search: debouncedSearch, status }),
     getNextPageParam: (lastPage) => lastPage.pagination.hasMore ? lastPage.pagination.nextCursor : undefined,
     initialPageParam: undefined,
+    placeholderData: keepPreviousData,
   });
 
   const deleteMutation = useMutation({
